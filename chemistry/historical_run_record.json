@@ -1,0 +1,19 @@
+{
+  "inputs": 128,
+  "mixing_points_per_input": 41,
+  "source_sha256": {
+    "GeoChem.dat": "2cfa5be85bd29bd7556946a0b7f104857ff848d04b18c9f57e9d2508195e72fe",
+    "iphreeqc_runner": "6c5968fd36f43fc088716dfff29e7823f6e1fdfbc5f73dfb6681f72b0278ab24",
+    "lib/libPhreeqcRM.so": "036e17eebcf8e8d3c0c0522d5022fea3c94e2c613bdb33f8125405e5d869c52c",
+    "generate_sensitivity.py": "b49d5655f79523fc32fcf4f1784147ed70c7a6bd201627d4016c2f72caf2709e"
+  },
+  "logK_deltas": [
+    -1,
+    -0.5,
+    -0.25,
+    0.25,
+    0.5,
+    1
+  ],
+  "note": "One parameter at a time. No fitting, no discarded perturbations. Common-Ca additions apply to both endmembers."
+}

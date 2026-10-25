@@ -1,0 +1,575 @@
+TITLE Reduced calcite-acidic-oil sensitivity lookup
+SURFACE_MASTER_SPECIES
+ Cal_s Cal_sOH
+ Oil_w Oil_wCOOH
+SURFACE_SPECIES
+ Cal_sOH = Cal_sOH
+  log_k 0
+ Cal_sOH + H+ = Cal_sOH2+
+  log_k 7.0
+ Cal_sOH = Cal_sO- + H+
+  log_k -8.5
+ Cal_sOH + Na+ = Cal_sONa + H+
+  log_k -7.6
+ Cal_sOH + Ca+2 = Cal_sOCa+ + H+
+  log_k -4.2
+ Cal_sOH + Mg+2 = Cal_sOMg+ + H+
+  log_k -6.4
+ Cal_sOH + SO4-2 = Cal_sSO4- + OH-
+  log_k -1.5
+ Oil_wCOOH = Oil_wCOOH
+  log_k 0
+ Oil_wCOOH = Oil_wCOO- + H+
+  log_k -5.0
+ Oil_wCOOH + Ca+2 = Oil_wCOOCa+ + H+
+  log_k -2.0
+ Oil_wCOOH + Mg+2 = Oil_wCOOMg+ + H+
+  log_k -6.4
+SELECTED_OUTPUT 1
+ -active true
+ -reset false
+ -high_precision true
+ -solution true
+USER_PUNCH 1
+ -headings TBP sulfate_fraction charge_pair sodium_product final_pH
+ -start
+ 10 ctot=MOL("Cal_sOH")+MOL("Cal_sOH2+")+MOL("Cal_sO-")+MOL("Cal_sONa")+MOL("Cal_sOCa+")+MOL("Cal_sOMg+")+MOL("Cal_sSO4-")
+ 20 otot=MOL("Oil_wCOOH")+MOL("Oil_wCOO-")+MOL("Oil_wCOOCa+")+MOL("Oil_wCOOMg+")
+ 30 cp=(MOL("Cal_sOH2+")+MOL("Cal_sOCa+")+MOL("Cal_sOMg+"))/ctot
+ 40 cn=(MOL("Cal_sO-")+MOL("Cal_sSO4-"))/ctot
+ 50 oilneg=MOL("Oil_wCOO-")/otot
+ 60 oilpos=(MOL("Oil_wCOOCa+")+MOL("Oil_wCOOMg+"))/otot
+ 70 tbp=0.28*(1-MOL("Cal_sSO4-")/ctot)+oilneg*cp+oilpos*cn+0.50*oilneg*MOL("Cal_sONa")/ctot
+ 80 PUNCH tbp, MOL("Cal_sSO4-")/ctot, oilneg*cp+oilpos*cn, oilneg*MOL("Cal_sONa")/ctot, -LA("H+")
+ -end
+
+SOLUTION 1
+ units mol/kgw
+ pH 8.5
+ Na 0.005
+ Cl 0.005
+SURFACE 1
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 1
+ -no_edl true
+END
+
+SOLUTION 2
+ units mol/kgw
+ pH 8.5
+ Na 0.0065416666675
+ Cl 0.004875
+ S(6) 0.0008333333325 as SO4
+SURFACE 2
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 2
+ -no_edl true
+END
+
+SOLUTION 3
+ units mol/kgw
+ pH 8.5
+ Na 0.008083333335
+ Cl 0.00475
+ S(6) 0.001666666665 as SO4
+SURFACE 3
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 3
+ -no_edl true
+END
+
+SOLUTION 4
+ units mol/kgw
+ pH 8.5
+ Na 0.0096250000025
+ Cl 0.004625
+ S(6) 0.0024999999975 as SO4
+SURFACE 4
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 4
+ -no_edl true
+END
+
+SOLUTION 5
+ units mol/kgw
+ pH 8.5
+ Na 0.01116666667
+ Cl 0.0045
+ S(6) 0.00333333333 as SO4
+SURFACE 5
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 5
+ -no_edl true
+END
+
+SOLUTION 6
+ units mol/kgw
+ pH 8.5
+ Na 0.0127083333375
+ Cl 0.004375
+ S(6) 0.0041666666625 as SO4
+SURFACE 6
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 6
+ -no_edl true
+END
+
+SOLUTION 7
+ units mol/kgw
+ pH 8.5
+ Na 0.014250000005
+ Cl 0.00425
+ S(6) 0.004999999995 as SO4
+SURFACE 7
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 7
+ -no_edl true
+END
+
+SOLUTION 8
+ units mol/kgw
+ pH 8.5
+ Na 0.0157916666725
+ Cl 0.004125
+ S(6) 0.0058333333275 as SO4
+SURFACE 8
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 8
+ -no_edl true
+END
+
+SOLUTION 9
+ units mol/kgw
+ pH 8.5
+ Na 0.01733333334
+ Cl 0.004
+ S(6) 0.00666666666 as SO4
+SURFACE 9
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 9
+ -no_edl true
+END
+
+SOLUTION 10
+ units mol/kgw
+ pH 8.5
+ Na 0.0188750000075
+ Cl 0.003875
+ S(6) 0.0074999999925 as SO4
+SURFACE 10
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 10
+ -no_edl true
+END
+
+SOLUTION 11
+ units mol/kgw
+ pH 8.5
+ Na 0.020416666675
+ Cl 0.00375
+ S(6) 0.008333333325 as SO4
+SURFACE 11
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 11
+ -no_edl true
+END
+
+SOLUTION 12
+ units mol/kgw
+ pH 8.5
+ Na 0.0219583333425
+ Cl 0.003625
+ S(6) 0.0091666666575 as SO4
+SURFACE 12
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 12
+ -no_edl true
+END
+
+SOLUTION 13
+ units mol/kgw
+ pH 8.5
+ Na 0.02350000001
+ Cl 0.0035
+ S(6) 0.00999999999 as SO4
+SURFACE 13
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 13
+ -no_edl true
+END
+
+SOLUTION 14
+ units mol/kgw
+ pH 8.5
+ Na 0.0250416666775
+ Cl 0.003375
+ S(6) 0.0108333333225 as SO4
+SURFACE 14
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 14
+ -no_edl true
+END
+
+SOLUTION 15
+ units mol/kgw
+ pH 8.5
+ Na 0.026583333345
+ Cl 0.00325
+ S(6) 0.011666666655 as SO4
+SURFACE 15
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 15
+ -no_edl true
+END
+
+SOLUTION 16
+ units mol/kgw
+ pH 8.5
+ Na 0.0281250000125
+ Cl 0.003125
+ S(6) 0.0124999999875 as SO4
+SURFACE 16
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 16
+ -no_edl true
+END
+
+SOLUTION 17
+ units mol/kgw
+ pH 8.5
+ Na 0.02966666668
+ Cl 0.003
+ S(6) 0.01333333332 as SO4
+SURFACE 17
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 17
+ -no_edl true
+END
+
+SOLUTION 18
+ units mol/kgw
+ pH 8.5
+ Na 0.0312083333475
+ Cl 0.002875
+ S(6) 0.0141666666525 as SO4
+SURFACE 18
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 18
+ -no_edl true
+END
+
+SOLUTION 19
+ units mol/kgw
+ pH 8.5
+ Na 0.032750000015
+ Cl 0.00275
+ S(6) 0.014999999985 as SO4
+SURFACE 19
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 19
+ -no_edl true
+END
+
+SOLUTION 20
+ units mol/kgw
+ pH 8.5
+ Na 0.0342916666825
+ Cl 0.002625
+ S(6) 0.0158333333175 as SO4
+SURFACE 20
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 20
+ -no_edl true
+END
+
+SOLUTION 21
+ units mol/kgw
+ pH 8.5
+ Na 0.03583333335
+ Cl 0.0025
+ S(6) 0.01666666665 as SO4
+SURFACE 21
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 21
+ -no_edl true
+END
+
+SOLUTION 22
+ units mol/kgw
+ pH 8.5
+ Na 0.0373750000175
+ Cl 0.002375
+ S(6) 0.0174999999825 as SO4
+SURFACE 22
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 22
+ -no_edl true
+END
+
+SOLUTION 23
+ units mol/kgw
+ pH 8.5
+ Na 0.038916666685
+ Cl 0.00225
+ S(6) 0.018333333315 as SO4
+SURFACE 23
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 23
+ -no_edl true
+END
+
+SOLUTION 24
+ units mol/kgw
+ pH 8.5
+ Na 0.0404583333525
+ Cl 0.002125
+ S(6) 0.0191666666475 as SO4
+SURFACE 24
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 24
+ -no_edl true
+END
+
+SOLUTION 25
+ units mol/kgw
+ pH 8.5
+ Na 0.04200000002
+ Cl 0.002
+ S(6) 0.01999999998 as SO4
+SURFACE 25
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 25
+ -no_edl true
+END
+
+SOLUTION 26
+ units mol/kgw
+ pH 8.5
+ Na 0.0435416666875
+ Cl 0.001875
+ S(6) 0.0208333333125 as SO4
+SURFACE 26
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 26
+ -no_edl true
+END
+
+SOLUTION 27
+ units mol/kgw
+ pH 8.5
+ Na 0.045083333355
+ Cl 0.00175
+ S(6) 0.021666666645 as SO4
+SURFACE 27
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 27
+ -no_edl true
+END
+
+SOLUTION 28
+ units mol/kgw
+ pH 8.5
+ Na 0.0466250000225
+ Cl 0.001625
+ S(6) 0.0224999999775 as SO4
+SURFACE 28
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 28
+ -no_edl true
+END
+
+SOLUTION 29
+ units mol/kgw
+ pH 8.5
+ Na 0.04816666669
+ Cl 0.0015
+ S(6) 0.02333333331 as SO4
+SURFACE 29
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 29
+ -no_edl true
+END
+
+SOLUTION 30
+ units mol/kgw
+ pH 8.5
+ Na 0.0497083333575
+ Cl 0.001375
+ S(6) 0.0241666666425 as SO4
+SURFACE 30
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 30
+ -no_edl true
+END
+
+SOLUTION 31
+ units mol/kgw
+ pH 8.5
+ Na 0.051250000025
+ Cl 0.00125
+ S(6) 0.024999999975 as SO4
+SURFACE 31
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 31
+ -no_edl true
+END
+
+SOLUTION 32
+ units mol/kgw
+ pH 8.5
+ Na 0.0527916666925
+ Cl 0.001125
+ S(6) 0.0258333333075 as SO4
+SURFACE 32
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 32
+ -no_edl true
+END
+
+SOLUTION 33
+ units mol/kgw
+ pH 8.5
+ Na 0.05433333336
+ Cl 0.001
+ S(6) 0.02666666664 as SO4
+SURFACE 33
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 33
+ -no_edl true
+END
+
+SOLUTION 34
+ units mol/kgw
+ pH 8.5
+ Na 0.0558750000275
+ Cl 0.000875
+ S(6) 0.0274999999725 as SO4
+SURFACE 34
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 34
+ -no_edl true
+END
+
+SOLUTION 35
+ units mol/kgw
+ pH 8.5
+ Na 0.057416666695
+ Cl 0.00075
+ S(6) 0.028333333305 as SO4
+SURFACE 35
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 35
+ -no_edl true
+END
+
+SOLUTION 36
+ units mol/kgw
+ pH 8.5
+ Na 0.0589583333625
+ Cl 0.000625
+ S(6) 0.0291666666375 as SO4
+SURFACE 36
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 36
+ -no_edl true
+END
+
+SOLUTION 37
+ units mol/kgw
+ pH 8.5
+ Na 0.06050000003
+ Cl 0.0005
+ S(6) 0.02999999997 as SO4
+SURFACE 37
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 37
+ -no_edl true
+END
+
+SOLUTION 38
+ units mol/kgw
+ pH 8.5
+ Na 0.0620416666975
+ Cl 0.000375
+ S(6) 0.0308333333025 as SO4
+SURFACE 38
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 38
+ -no_edl true
+END
+
+SOLUTION 39
+ units mol/kgw
+ pH 8.5
+ Na 0.063583333365
+ Cl 0.00025
+ S(6) 0.031666666635 as SO4
+SURFACE 39
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 39
+ -no_edl true
+END
+
+SOLUTION 40
+ units mol/kgw
+ pH 8.5
+ Na 0.0651250000325
+ Cl 0.000125
+ S(6) 0.0324999999675 as SO4
+SURFACE 40
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 40
+ -no_edl true
+END
+
+SOLUTION 41
+ units mol/kgw
+ pH 8.5
+ Na 0.0666666667
+ S(6) 0.0333333333 as SO4
+SURFACE 41
+ Cal_sOH 2.5e-06 1 1
+ Oil_wCOOH 1e-06 1 1
+ -equilibrate 41
+ -no_edl true
+END

@@ -1,0 +1,13 @@
+# Generated OpenFOAM results; retain only the supplied time-zero inputs.
+cases/**/[1-9]*/
+cases/**/0.*/
+cases/**/processor*/
+cases/**/postProcessing/
+cases/**/status/
+cases/**/log.*
+cases/**/*.foam
+chemistry/generated/
+software/build/
+software/phreeqc3/
+__pycache__/
+*.pyc
